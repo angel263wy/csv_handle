@@ -62,11 +62,116 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>自动绘图</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>451</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_12">
+      <item>
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>配置文件路径</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_cfg_path">
+        <property name="text">
+         <string>config.csv</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="pushButton_cfg">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>20</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>导入配置</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_plotall">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>70</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>批量画图</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_dpc">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>130</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>DPC画图</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>181</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>剔除无效行数：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_del_rows">
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>999</number>
+        </property>
+        <property name="value">
+         <number>35</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>绘图界面</string>
+     <string>手动绘图</string>
     </attribute>
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
@@ -74,7 +179,7 @@
        <x>10</x>
        <y>20</y>
        <width>201</width>
-       <height>111</height>
+       <height>151</height>
       </rect>
      </property>
      <property name="title">
@@ -138,7 +243,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QWidget" name="layoutWidget_5">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -147,27 +252,62 @@
         <height>23</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <layout class="QHBoxLayout" name="horizontalLayout_13">
        <item>
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="label_12">
          <property name="text">
-          <string>剔除无效行数：</string>
+          <string>图片宽度：</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBox_del_rows">
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="minimum">
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_width">
+         <property name="decimals">
           <number>0</number>
          </property>
+         <property name="minimum">
+          <double>0.000000000000000</double>
+         </property>
          <property name="maximum">
-          <number>999</number>
+          <double>99999.000000000000000</double>
          </property>
          <property name="value">
-          <number>35</number>
+          <double>640.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>181</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <item>
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>图片高度：</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_hight">
+         <property name="decimals">
+          <number>0</number>
+         </property>
+         <property name="minimum">
+          <double>0.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>99999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>480.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -180,7 +320,7 @@
        <x>220</x>
        <y>20</y>
        <width>161</width>
-       <height>111</height>
+       <height>151</height>
       </rect>
      </property>
      <property name="title">
@@ -357,43 +497,17 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QPushButton" name="pushButton_plot">
      <property name="geometry">
       <rect>
-       <x>22</x>
-       <y>152</y>
-       <width>451</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_12">
-      <item>
-       <widget class="QLabel" name="label_11">
-        <property name="text">
-         <string>配置文件路径</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_cfg_path">
-        <property name="text">
-         <string>config.csv</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QPushButton" name="pushButton_cfg">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
+       <x>510</x>
        <y>150</y>
        <width>93</width>
        <height>28</height>
       </rect>
      </property>
      <property name="text">
-      <string>导入配置</string>
+      <string>手动画图</string>
      </property>
     </widget>
    </widget>
@@ -518,6 +632,11 @@
      </layout>
     </widget>
    </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>数据筛选</string>
+    </attribute>
+   </widget>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -547,45 +666,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="pushButton_dpc">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>410</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>DPC画图</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_plotall">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>230</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>批量画图</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_plot">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>160</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>手动画图</string>
-   </property>
   </widget>
  </widget>
  <resources/>
@@ -677,8 +757,8 @@
    <slot>on_btn_cfg_click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>732</x>
-     <y>187</y>
+     <x>612</x>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
      <x>671</x>

@@ -24,6 +24,8 @@ class Test(QWidget, Ui_Form):
     # 类的变量
     tmdata = pd.DataFrame()
     plot_cfg = pd.DataFrame()
+    fig_width = 640
+    fig_hight = 480
 
 
     # 打开数据文件  注意:getOpenFileName返回值为元组 第一个参数为文件名
@@ -104,7 +106,9 @@ class Test(QWidget, Ui_Form):
             ylegend = [self.tmdata.columns[startnum]]  # legend对于str型 需要用[] 否则只显示第一个元素
 
         # 画图
-        fig = plt.figure()  #  figsize=(12.80, 9.6) 可以设置画布大小 1280*960
+        fig_width = self.doubleSpinBox_width.value()/100
+        fig_hight = self.doubleSpinBox_hight.value()/100
+        fig = plt.figure(figsize=(fig_width, fig_hight))  #  figsize=(12.80, 9.6) 可以设置画布大小 1280*960
         ax = fig.add_subplot(111)
         ax.plot(xdat, ydat, linewidth=2)
 
