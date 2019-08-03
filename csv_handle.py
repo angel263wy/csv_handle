@@ -174,7 +174,9 @@ class Test(QWidget, Ui_Form):
             ylegend = [self.tmdata.columns[startnum]]  # legend对于str型 需要用[] 否则只显示第一个元素
 
         # 画图
-        fig = plt.figure()  # figsize=(12.80, 9.6) 可以设置画布大小 1280*960
+        fig_width = self.doubleSpinBox_width.value()/100
+        fig_hight = self.doubleSpinBox_hight.value()/100
+        fig = plt.figure(figsize=(fig_width, fig_hight))  #  figsize=(12.80, 9.6) 可以设置画布大小 1280*960
         ax = fig.add_subplot(111)
         ax.plot(xdat, ydat, linewidth=2)
 
@@ -212,6 +214,29 @@ class Test(QWidget, Ui_Form):
                           figtitle=self.plot_cfg.iloc[i, 2],
                           figfname=self.plot_cfg.iloc[i, 2])
 
+
+    # 数据剔除和替换函数
+    def on_btn_replace_click(self):
+        tt = self.doubleSpinBox_tt.value()  # 替换之前的值
+        rr = self.doubleSpinBox_rr.value()  # 替换后的值
+        replace_columns = self.spinBox_replace_col.value()
+
+        now = time.strftime('%Y-%m-%d %H:%M:%S ', time.localtime(time.time()))
+
+        if self.radioButton_gt.isChecked():  # 大于替换 遥测数据大于某值时认为异常 进行替换
+            for i, dat in enumerate(self.tmdata.iloc[:, replace_columns]):
+                if dat > tt:  # 大于 替换
+                    self.tmdata.iloc[i, replace_columns] = rr
+                else:
+                    pass
+            self.textEdit_log.append(now + '大于替换完成')
+        else:  # 小于替换 遥测数据小于某值时认为异常 进行替换
+            for i, dat in enumerate(self.tmdata.iloc[:, replace_columns]):
+                if dat < tt:  # 大于 替换
+                    self.tmdata.iloc[i, replace_columns] = rr
+                else:
+                    pass
+            self.textEdit_log.append(now + '小于替换完成')
 
 
 if __name__ == '__main__':
